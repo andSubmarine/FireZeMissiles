@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FireZeMissiles!</string>
+    <string name="search_hint">Search for target</string>
+    <string name="detail_description_filler">Description</string>
+    <string name="launch_text">LAUNCH MISSILE</string>
+    <string name="provoke_text">PROVOKE</string>
+    <string name="strength_text">Strength:</string>
+    <string name="sample_progress">0 / 100</string>
+</resources>
