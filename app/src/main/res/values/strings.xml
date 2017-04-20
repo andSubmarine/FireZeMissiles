@@ -6,4 +6,14 @@
     <string name="provoke_text">PROVOKE</string>
     <string name="strength_text">Strength:</string>
     <string name="sample_progress">0 / 100</string>
+    <string name="warning_incoming">-x-x-x- WARNING: MISSILE INCOMING -x-x-x-</string>
+    <string name="warning_hit">-x-x-x- ERROR: SYSTEM HIT BY MISSILE -x-x-x-</string>
+    <string name="warning_launching">-x-x-x- WARNING: LAUNCHING MISSILE -x-x-x-</string>
+    <string name="no_warning">Business as usual</string>
+    <string name="warning_destroyed">NO SURVIVORS PRESENT</string>
+    <string name="leader_filler">Leader:</string>
+    <string name="sample_leader">Leader McLeader</string>
+    <string name="sample_description">lorem ipsum</string>
+    <string name="mark_text">MARK AS SELECTED</string>
+
 </resources>

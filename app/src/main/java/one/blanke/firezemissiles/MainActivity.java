@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import one.blanke.firezemissiles.model.Target;
+import one.blanke.firezemissiles.model.TargetGenerator;
+
 public class MainActivity extends AppCompatActivity implements TargetListFragment.TargetListItemClicked {
 
     public static final String TARGET_ID = "";

@@ -56,20 +56,44 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leader:"
+            android:text="@string/leader_filler"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:id="@+id/detail_leader_filler"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Leader McLeader"
+            android:textSize="20sp"
+            android:text="@string/sample_leader"
             android:layout_toRightOf="@id/detail_leader_filler"
             android:paddingLeft="10dp"
             android:id="@+id/detail_target_leader"/>
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
+
+        <TextView
+            android:id="@+id/detail_target_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_warning"
+            android:background="@color/colorPrimaryLight"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textColor="@color/colorWhiteLight"
+            />
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -79,7 +103,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:paddingTop="6dp"
         android:text="@string/detail_description_filler"/>
@@ -87,10 +111,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textStyle="italic"
         android:paddingTop="10dp"
-        android:text="lorem ipsum"
+        android:text="@string/sample_description"
         android:id="@+id/detail_target_description"/>
 
 </LinearLayout>

@@ -35,6 +35,7 @@ public class TargetListFragment extends Fragment {
     }
     private TargetListItemClicked targetListListener;
 
+    private Target marked;
     private List<Target> targets;
     private List<Target> filteredList;
 
@@ -114,9 +115,34 @@ public class TargetListFragment extends Fragment {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         Target target = TargetGenerator.getTarget(((AdapterContextMenuInfo) item.getMenuInfo()).position);
         switch (item.getItemId()) {
+            case R.id.mark:
+                marked = target;
+                marked.setStatus(Status.ALIVE);
+                return true;
             case R.id.send_missile:
-                Toast.makeText(getActivity(),"Launched missile towards "+target.getShortName(),Toast.LENGTH_SHORT).show();
-                target.setStrength(-100);
+                if (marked == null) {
+                    Toast.makeText(getActivity(), "Launched missile towards " + target.getShortName(), Toast.LENGTH_SHORT).show();
+                    target.setStrength(-200);
+                    target.setStatus(Status.HIT_BY_MISSILE);
+                } else {
+                    if (!marked.equals(target)) {
+                        if (marked.getStatus() != Status.DESTROYED) {
+                            marked.setStatus(Status.LAUNCHING_MISSILE);
+                            Toast.makeText(getActivity(), marked.getShortName() +
+                                    " launched missile towards " + target.getShortName(),
+                                    Toast.LENGTH_SHORT).show();
+                            target.setStrength(-200);
+                            target.setStatus(Status.HIT_BY_MISSILE);
+                        } else {
+                            Toast.makeText(getActivity(), marked.getShortName()+
+                                            " has been destroyed and cannot launch missiles",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity(), "Cannot launch against itself",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
                 return true;
             case R.id.provoke:
                 Toast.makeText(getActivity(),target.getLeader()+" did NOT like that...",Toast.LENGTH_SHORT).show();

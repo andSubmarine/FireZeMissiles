@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/mark"
+        android:title="@string/mark_text"/>
+
+    <item
         android:id="@+id/send_missile"
         android:title="@string/launch_text"/>
 

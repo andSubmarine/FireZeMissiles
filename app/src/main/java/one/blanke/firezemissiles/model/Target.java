@@ -1,6 +1,12 @@
 package one.blanke.firezemissiles.model;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.support.v4.content.res.ResourcesCompat;
 import android.widget.Toast;
+
+import one.blanke.firezemissiles.R;
+import one.blanke.firezemissiles.Status;
 
 /**
  * Created by andre_000 on 20-04-2017.
@@ -15,12 +21,12 @@ public class Target {
     private String description;
     private int strength;
     private final int maxStrength;
-    private boolean alive;
+    private Status status;
 
     public Target(int id, String name, String short_name, String leader, String description, int strength) {
         this.id = id;
-        if (strength < 0) alive = false;
-        else alive = true;
+        if (strength < 0) status = Status.DESTROYED;
+        else status = Status.ALIVE;
         this.name = name;
         this.short_name = short_name;
         this.leader = leader;
@@ -29,61 +35,59 @@ public class Target {
         this.maxStrength = strength;
     }
 
-    public String getName() {
-        return name;
+    public void setStatus(Status status) {
+        if (this.status != Status.DESTROYED) {
+            this.status = status;
+            if (strength <= 0) {
+                   this.status = Status.DESTROYED;
+            }
+        }
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getShortName() {
-        return short_name;
-    }
-
     public void setShort_name(String short_name) {
         this.short_name = short_name;
-    }
-
-    public String getLeader() {
-        return leader;
     }
 
     public void setLeader(String leader) {
         this.leader = leader;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getStrength() {
-        return strength;
     }
 
     public void setStrength(int strength) {
         this.strength += strength;
     }
 
-    public int getProgress() {
-        double percentage =  1 - ((maxStrength - strength) / maxStrength);
-        return (int) Math.floor(percentage*100);
+    public double getProgress() {
+        return (double) (strength) / (double) maxStrength;
     }
 
-    public boolean isAlive() {
-        return alive;
+    public Status getStatus() {return status;}
+
+    public String getName() {
+        return name;
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
+    public String getShortName() {
+        return short_name;
     }
 
-    public void toggleAlive() {
-        this.alive = !this.alive;
+    public String getLeader() {
+        return leader;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getStrength() {
+        return strength;
     }
 
     public int getID() {
